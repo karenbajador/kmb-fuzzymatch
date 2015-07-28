@@ -1,5 +1,3 @@
-.gitignore
 config.py
-processsed_files/
 *.ipynb
-*/__pycache__/
+__pycache__/
