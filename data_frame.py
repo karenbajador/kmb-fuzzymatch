@@ -1,4 +1,6 @@
 import pandas as pd
+from helpers.decorator import CreateDirectory
+from settings import DESTINATION_FOLDER, SOURCE_FOLDER
 
 class PandaDataFrame():
 
@@ -13,7 +15,7 @@ class PandaDataFrame():
             #xls = pd.ExcelFile('files/' + pd_file)
             
 
-            data = pd.read_csv('files/' + pd_file)
+            data = pd.read_csv(SOURCE_FOLDER + "/" + pd_file)
             # do stuff with cache
         except IOError as e:
                 raise StuffCachingError('Caching error: %s' % e)  
@@ -72,13 +74,17 @@ class PandaDataFrame():
         self.save()
 
 
+    
+    @CreateDirectory(DESTINATION_FOLDER)
     def save(self):
-
         # writer_orig = pd.ExcelWriter('processed_files/'+self._pd_file, engine='xlsxwriter')
         # self._new_df.to_excel(writer_orig, index=False, sheet_name='report')
-
         #writer_orig = pd.ExcelWriter('processed_files/'+self._pd_file, engine='xlsxwriter')
-        self._new_df.to_csv('processed_files/'+self._pd_file, index=False)
-
+        self._new_df.to_csv(DESTINATION_FOLDER+"/"+self._pd_file, index=False)
         #writer_orig.save()
 
+
+ 
+
+
+    
