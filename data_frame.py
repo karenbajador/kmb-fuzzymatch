@@ -32,12 +32,6 @@ class PandaDataFrame():
         self._new_df["CRM Group ID"] = ""
         self._new_df["CRM Company ID"] = ""
 
-        match_status_dict = {
-        '75': 'high',
-        '70': 'medium',
-        '1': 'low',
-        '0': 'not matched',
-        }
 
 
     @property
