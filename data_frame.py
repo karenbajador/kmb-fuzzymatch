@@ -1,44 +1,29 @@
 import pandas as pd
 from helpers.decorator import CreateDirectory
-from settings import DESTINATION_FOLDER, SOURCE_FOLDER
+from settings import DESTINATION_FOLDER, SOURCE_FOLDER, COLUMNS
 
 class PandaDataFrame():
 
     def __init__(self, pd_file):
         
-        class StuffCachingError(Exception): pass
+        class myIOError(Exception): pass
         print ("Loading Data...")
 
         
 
         try:
             #xls = pd.ExcelFile('files/' + pd_file)
-            
-
             data = pd.read_csv(SOURCE_FOLDER + "/" + pd_file)
-            # do stuff with cache
         except IOError as e:
-                raise StuffCachingError('Caching error: %s' % e)  
+                raise myIOError('Caching error: %s' % e)  
 
         #data = xls.parse(xls.sheet_names[0])
         self._pd_file = pd_file
         
-
         print ("Loaded Data!")
 
-
-        columns = ["Company Name", \
-                    "Key ID", \
-                    "Address Line 1", \
-                    "City", \
-                    "Phone", \
-                    "URL", \
-                    "Revenue (As Reported)", \
-                    "Employees" \
-                    ]
-        ##To get all columns
-
-        df = pd.DataFrame(data, columns=columns)
+        #Generate DataFrame including relevant columns
+        df = pd.DataFrame(data, columns=COLUMNS)
 
         self._new_df = df
 
@@ -46,6 +31,13 @@ class PandaDataFrame():
         self._new_df["CRM Company Name"] = ""
         self._new_df["CRM Group ID"] = ""
         self._new_df["CRM Company ID"] = ""
+
+        match_status_dict = {
+        '75': 'high',
+        '70': 'medium',
+        '1': 'low',
+        '0': 'not matched',
+        }
 
 
     @property
@@ -82,6 +74,8 @@ class PandaDataFrame():
         #writer_orig = pd.ExcelWriter('processed_files/'+self._pd_file, engine='xlsxwriter')
         self._new_df.to_csv(DESTINATION_FOLDER+"/"+self._pd_file, index=False)
         #writer_orig.save()
+
+
 
 
  
