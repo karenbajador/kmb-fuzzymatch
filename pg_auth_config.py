@@ -8,11 +8,11 @@ class Config(object):
 
 
 class DubaiDevConfig(Config):
-    PG_HOST = "192.168.5.252"
+    PG_HOST = "localhost"
     PG_PORT = '9999'
-    PG_USERNAME = 'bayt'
-    PG_PASSWORD = 'casi02'
-    PG_DB = 'bayt'
+    PG_USERNAME = 'karen_user'
+    PG_PASSWORD = 'secret'
+    PG_DB = 'karen_db'
 
 
 import os
