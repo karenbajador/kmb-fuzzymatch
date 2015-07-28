@@ -1,0 +1,22 @@
+Abu Dhabi.csv;ae;Abu Dhabi
+Algeria.csv;dz ;International
+bahrain.csv;bh;Bahrain
+Dubai.csv;ae;Dubai
+Egypt.csv;eg;Egypt
+Iran.csv;ir;International
+iraq.csv;iq;Iraq
+Jordan.csv;jo;Jordan
+KSA.csv;sa;
+kuwait.csv;kw;Kuwait
+Lebanon.csv;lb;Lebanon
+Morocco.csv;ma;Morocco
+Oman.csv;om;Oman
+Pakistan.csv;pk;
+Palestine.csv;px;International
+Qatar.csv;qa;Qatar
+Sharjah.csv;ae;
+Sudan.csv;sd;International
+Tunisia.csv;tn;International
+Yemen.csv;ye;International
+
+

@@ -1,0 +1,5 @@
+config.py
+files/
+processsed_files/
+*.ipynb
+*.__pycache__/

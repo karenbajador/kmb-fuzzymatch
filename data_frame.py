@@ -1,0 +1,84 @@
+import pandas as pd
+
+class PandaDataFrame():
+
+    def __init__(self, pd_file):
+        
+        class StuffCachingError(Exception): pass
+        print ("Loading Data...")
+
+        
+
+        try:
+            #xls = pd.ExcelFile('files/' + pd_file)
+            
+
+            data = pd.read_csv('files/' + pd_file)
+            # do stuff with cache
+        except IOError as e:
+                raise StuffCachingError('Caching error: %s' % e)  
+
+        #data = xls.parse(xls.sheet_names[0])
+        self._pd_file = pd_file
+        
+
+        print ("Loaded Data!")
+
+
+        columns = ["Company Name", \
+                    "Key ID", \
+                    "Address Line 1", \
+                    "City", \
+                    "Phone", \
+                    "URL", \
+                    "Revenue (As Reported)", \
+                    "Employees" \
+                    ]
+        ##To get all columns
+
+        df = pd.DataFrame(data, columns=columns)
+
+        self._new_df = df
+
+        self._new_df["Match Status"] = ""
+        self._new_df["CRM Company Name"] = ""
+        self._new_df["CRM Group ID"] = ""
+        self._new_df["CRM Company ID"] = ""
+
+
+    @property
+    def df(self):
+    	return self._new_df
+
+
+    def update_df(self,index, best_match, best_score):
+        if best_score >= 75:
+            match_status = 'high'
+            ## Add best match columns
+        elif best_score >= 70:
+            match_status = 'medium'
+            ## Add best match columns            
+        elif best_score > 0:
+            match_status = 'low'
+            ## Add best match columns                        
+        else:
+            match_status = 'not matched'
+
+        self._new_df['Match Status'][int(index)]=match_status+"="+str(best_score)
+        self._new_df['CRM Company Name'][int(index)]=best_match.crm_company_name
+        self._new_df['CRM Group ID'][int(index)]=best_match.crm_group_id
+        self._new_df['CRM Company ID'][int(index)]=best_match.crm_company_id
+
+        self.save()
+
+
+    def save(self):
+
+        # writer_orig = pd.ExcelWriter('processed_files/'+self._pd_file, engine='xlsxwriter')
+        # self._new_df.to_excel(writer_orig, index=False, sheet_name='report')
+
+        #writer_orig = pd.ExcelWriter('processed_files/'+self._pd_file, engine='xlsxwriter')
+        self._new_df.to_csv('processed_files/'+self._pd_file, index=False)
+
+        #writer_orig.save()
+
