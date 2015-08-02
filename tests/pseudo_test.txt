@@ -1,0 +1,5 @@
+1. Test if loading file by counting # of rows -- DONE
+2. Test if saves correctly -- DONE
+3. Test clean company name
+4. Test ignore words company name
+5. Test fuzzy match company name
