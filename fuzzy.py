@@ -5,7 +5,10 @@ from fuzzywuzzy import fuzz
 from postgres_interface import PostgresInterface
 from helpers.ignored_words import IgnoreWords
 from data_frame import PandaDataFrame
+<<<<<<< HEAD
 from settings import SOURCE_FOLDER
+=======
+>>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
 
 
 def extract_row_generator(df):
@@ -36,7 +39,11 @@ def main(argv):
 
 	ignore_words_cls = IgnoreWords()
 	postgres_interface_cls = PostgresInterface()
+<<<<<<< HEAD
 	df_cls = PandaDataFrame(SOURCE_FOLDER + "/" + pd_file)	
+=======
+	df_cls = PandaDataFrame(pd_file)	
+>>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
 
 	for extracted_row in extract_row_generator(df_cls.df):
 		index, row =  extracted_row

@@ -16,7 +16,11 @@ COLUMNS = ["Company Name", \
             "URL", \
             "Revenue (As Reported)", \
             "Employees" \
+<<<<<<< HEAD
             ]
 
 TEST_FOLDER = "files"
 TEST_FILE = "sample.csv"
+=======
+            ]
+>>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
