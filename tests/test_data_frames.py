@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 from data_frame import PandaDataFrame 
 from settings import TEST_FILE
@@ -6,22 +6,7 @@ from unittest.mock import patch
 import unittest
 import collections
 
-=======
-from ..data_frame import PandaDataFrame 
-from unittest.mock import patch
->>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
-#>>> @patch('module.ClassName2')
-#... @patch('module.ClassName1')
-#... def test(MockClass1, MockClass2):
-#...     module.ClassName1()
-#...     module.ClassName2()
-#...     assert MockClass1 is module.ClassName1
-#...     assert MockClass2 is module.ClassName2
-#...     assert MockClass1.called
-#...     assert MockClass2.called
-#...
-<<<<<<< HEAD
-#>>> test()
+
 
 
 
@@ -59,6 +44,4 @@ class TestDataFrame(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-=======
-#>>> test()
->>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
+

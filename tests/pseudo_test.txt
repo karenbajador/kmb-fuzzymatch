@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 1. Test if loading file by counting # of rows -- DONE
 2. Test if saves correctly -- DONE
 3. Test clean company name
 4. Test ignore words company name
 5. Test fuzzy match company name
-=======
-1. Test if loading file by counting # of rows
-2. Test if row values are correct
-3. Test if saves correctly
->>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
+

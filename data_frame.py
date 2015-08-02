@@ -1,10 +1,6 @@
 import pandas as pd
 from helpers.decorator import CreateDirectory
-<<<<<<< HEAD
 from settings import DESTINATION_FOLDER, COLUMNS, SOURCE_FOLDER
-=======
-from settings import DESTINATION_FOLDER, SOURCE_FOLDER, COLUMNS
->>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
 
 class PandaDataFrame():
 
@@ -17,11 +13,8 @@ class PandaDataFrame():
 
         try:
             #xls = pd.ExcelFile('files/' + pd_file)
-<<<<<<< HEAD
+
             data = pd.read_csv(SOURCE_FOLDER+"/"+pd_file)
-=======
-            data = pd.read_csv(SOURCE_FOLDER + "/" + pd_file)
->>>>>>> 1f6d2b7aa7d005689e0d650ed2fdc92db82beb88
         except IOError as e:
                 raise myIOError('Caching error: %s' % e)  
 
