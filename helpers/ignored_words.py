@@ -36,7 +36,6 @@ class IgnoreWords():
                             "star", \
                             "hotel", \
                             "services", \
-                            "l l c", \
                             "llc", \
                             "al", \
                             "-", \
@@ -44,6 +43,7 @@ class IgnoreWords():
                             "in", \
                             "&", \
                             "pty", \
+                            "pte", \
                             "and", \
                             "international", \
                             "consulting", \
@@ -73,6 +73,7 @@ class IgnoreWords():
                             "partners", \
                             "exchange", \
                             "property", \
+                            "fze", \
                             ]
         self.ignored_phrase = ["middle east", \
                             "information technology", \
@@ -104,6 +105,8 @@ class IgnoreWords():
                             "building services", \
                             "business group", \
                             "development company", \
+                            "l l c", \
+                            "w l l", \
                             ]                            
 
     def return_keyword_lists(self,company_name):

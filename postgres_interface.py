@@ -27,7 +27,7 @@ class PostgresInterface():
     	
     	company_name_like = ' or '.join(("lower(company_name) like %s" for keyword in company_keywords_list if len(keyword) > 2))
 
-    	sql = "select company_id, company_name, group_id from crm.company_denorm_info where country = '{}'".format(country)
+    	sql = "select company_id, lower(company_name), group_id from crm.company_denorm_info where country = '{}'".format(country)
 
     	if len(territory) > 0:
     		sql += " and territory = '{}'".format(territory)

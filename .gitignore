@@ -1,5 +1,5 @@
 config.py
+pg_auth_config.py
 *.ipynb
-__pycache__/*
-*/__pycache__/*
+**__pycache__/
 \.~lock*

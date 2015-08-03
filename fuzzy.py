@@ -26,6 +26,16 @@ def get_fuzzy_match_generator(crm_results, excel_company_name):
 		yield Match(crm_company_id = result[0],crm_company_name = result[1],crm_group_id = result[2], score=fuzz.ratio(excel_company_name, result[1]))
 
 
+def call_fuzzy_match_generator(best_match, best_score, company_name, crm_results):
+	for match in get_fuzzy_match_generator(crm_results, company_name):
+		if match.score >= best_score:
+			if match.score > best_score:
+				best_match = {}
+				best_score = match.score
+			best_match = match
+	return best_match, best_score
+
+
 
 ### MAIN ###
 
@@ -38,7 +48,7 @@ def main(argv):
 	ignore_words_cls = IgnoreWords()
 	postgres_interface_cls = PostgresInterface()
 
-	df_cls = PandaDataFrame(SOURCE_FOLDER + "/" + pd_file)	
+	df_cls = PandaDataFrame(pd_file)	
 
 	for extracted_row in extract_row_generator(df_cls.df):
 		index, row =  extracted_row
@@ -57,15 +67,8 @@ def main(argv):
 		best_match = Match(crm_company_id = "",crm_company_name = "",crm_group_id = "", score="")
 		best_score = 0
 
-		for match in get_fuzzy_match_generator(crm_results, row["Company Name"]):
+		best_match, best_score = call_fuzzy_match_generator(best_match, best_score, row["Company Name"].lower(), crm_results)
 
-			if match.score >= best_score:
-				if match.score > best_score:
-					best_match = {}
-					best_score = match.score
-				best_match = match
-
-		
 		## Test Prints
 		# if best_score >= 75: 
 		# 	#print ("keword_list: {} + crm_results count: {}".format(company_keywords_list,len(crm_results)))
