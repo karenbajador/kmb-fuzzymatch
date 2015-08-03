@@ -15,8 +15,8 @@ def extract_row_generator(df):
 
 def clean(company_name):
 	## Clean spaces
-	company_name = re.sub(r'([^\s\+\&\w])|_+', '', company_name) 
-	return re.sub(' +',' ',company_name)		
+	company_name = re.sub(r'([^\s\+\&\w\.])|_+', '', company_name) 
+	return re.sub(' +',' ',company_name).strip()		
 
 # Specify the Employee namedtuple.
 Match = collections.namedtuple("Match", ["crm_company_id", "crm_company_name", "crm_group_id", "score"])

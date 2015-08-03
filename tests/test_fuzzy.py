@@ -10,22 +10,29 @@ class TestFuzzy(unittest.TestCase):
         """
         Clean Company Name
         """
+        self.assertEqual("Al Jaber L E G T Engineering & Contracting Alec L L C", clean("Al Jaber L E G T Engineering & Contracting (Alec) L L C"))
+        self.assertEqual("G.I.T Fze", clean("G.I.T Fze"))
         self.assertEqual("United Carrier Company L L C", clean("United Carrier Company - L L C"))
         self.assertEqual("Larsen & Toubro Limited Ecc Construction Group Abu Dhabi", clean("Larsen & Toubro Limited - Ecc Construction Group - Abu Dhabi"))
-        self.assertEqual("ThyssenKrupp Xervon UAE LLC", clean("ThyssenKrupp Xervon U.A.E. - L.L.C."))
+        self.assertEqual("ThyssenKrupp Xervon U.A.E. L.L.C.", clean("ThyssenKrupp Xervon U.A.E. - L.L.C."))
         self.assertEqual("Autochim Systems Abu Dhabi Asad L L C", clean("Autochim Systems - Abu Dhabi - (Asad) L L C"))
         self.assertEqual("Rolf Jensen & Associates International Inc", clean("Rolf Jensen & Associates, International, Inc"))
         self.assertEqual("M+W Singapore Pte Ltd Abu Dhabi", clean("M+W Singapore Pte Ltd - Abu Dhabi"))
-        self.assertEqual("Smith International Inc", clean("Smith International Inc.,"))
+        self.assertEqual("Smith International Inc.", clean("Smith International Inc.,"))
 
     def test_ignore_words(self):
         """
-        Ignore words. Returned keywords list are used to query similar companies in database to narrow number or records to apply fuzzy match against.
+        Ignore words. Returned keywords list are used to query similar companies in database to narrow number of records to apply fuzzy match against.
         """
-
         ignore_words_cls = IgnoreWords()
-        self.assertEqual(sorted(["noor","plc","hospitals",]), sorted(ignore_words_cls.return_keyword_lists("Al Noor Hospitals Group PLC".lower())))
-        self.assertEqual(sorted(["git"]), sorted(ignore_words_cls.return_keyword_lists("GIT Fze".lower())))
+        
+        self.assertEqual(sorted(["jaber","alec",]), sorted(ignore_words_cls.return_keyword_lists("Al Jaber L E G T Engineering & Contracting Alec L L C".lower())))
+        self.assertEqual(sorted(["arabtec",]), sorted(ignore_words_cls.return_keyword_lists("Arabtec Holding PJSC".lower())))
+        self.assertEqual(sorted(["advanced","pipes","casts",]), sorted(ignore_words_cls.return_keyword_lists("Advanced Pipes and Casts Company W.L.L.".lower())))
+        self.assertEqual(sorted(["smith",]), sorted(ignore_words_cls.return_keyword_lists("Smith International Inc.".lower())))
+        self.assertEqual(sorted(["thyssenkrupp","xervon","u.a.e.",]), sorted(ignore_words_cls.return_keyword_lists("ThyssenKrupp Xervon U.A.E. L.L.C.".lower())))
+        self.assertEqual(sorted(["noor","plc",]), sorted(ignore_words_cls.return_keyword_lists("Al Noor Hospitals Group PLC".lower())))
+        self.assertEqual(sorted(["g.i.t"]), sorted(ignore_words_cls.return_keyword_lists("G.I.T Fze".lower())))
         self.assertEqual(sorted(["linde"]), sorted(ignore_words_cls.return_keyword_lists("Linde Engineering Middle East LLC".lower())))
         self.assertEqual(sorted(["emco","maintenance"]), sorted(ignore_words_cls.return_keyword_lists("Engineering Maintenance Company EMCO".lower())))
         self.assertEqual(sorted(["moherbie","thermoplast"]), sorted(ignore_words_cls.return_keyword_lists("Al Moherbie Thermoplast LLC".lower())))
@@ -33,10 +40,7 @@ class TestFuzzy(unittest.TestCase):
         self.assertEqual(sorted(["y&r",]), sorted(ignore_words_cls.return_keyword_lists("Y&R Abu Dhabi".lower())))
         self.assertEqual(sorted(["tolico",]), sorted(ignore_words_cls.return_keyword_lists("Tolico Trading Oilfield Services L L C".lower())))
 
-
         
-
-
     def test_fuzzy_match(self):
         """
         Fuzzy match. Returns a generator.
@@ -81,7 +85,7 @@ class TestFuzzy(unittest.TestCase):
                         [84726,"zulekha hospitals",1520309],
                     ]
         best_match, best_score = call_fuzzy_match_generator(best_match, best_score, "Al Noor Hospitals Group PLC".lower(), crm_results)
-        self.assertEqual("al noor hospital", best_match.crm_company_name)        
+        self.assertEqual("al noor hospital", best_match.crm_company_name)
 
 
 

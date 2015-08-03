@@ -10,7 +10,9 @@ class IgnoreWords():
                             "group", \
                             "limited", \
                             "inc", \
+                            "inc.", \
                             "hospital", \
+                            "hospitals", \
                             "embassy", \
                             "university", \
                             "bank", \
@@ -29,7 +31,6 @@ class IgnoreWords():
                             "est", \
                             "limited", \
                             "client", \
-                            "a", \
                             "leading", \
                             "companies", \
                             "for", \
@@ -37,6 +38,7 @@ class IgnoreWords():
                             "hotel", \
                             "services", \
                             "llc", \
+                            "l.l.c.", \
                             "al", \
                             "-", \
                             "co", \
@@ -74,6 +76,11 @@ class IgnoreWords():
                             "exchange", \
                             "property", \
                             "fze", \
+                            "wll", \
+                            "w.l.l.", \
+                            "pjsc", \
+                            "psc", \
+                            "p.s.c", \
                             ]
         self.ignored_phrase = ["middle east", \
                             "information technology", \
@@ -105,8 +112,6 @@ class IgnoreWords():
                             "building services", \
                             "business group", \
                             "development company", \
-                            "l l c", \
-                            "w l l", \
                             ]                            
 
     def return_keyword_lists(self,company_name):
@@ -117,7 +122,8 @@ class IgnoreWords():
         for phrase in self.ignored_phrase:
             clean_company_name = re.sub(r"\b%s\b" % phrase, "", clean_company_name)
             
-
-        clean_company_name = re.sub(' +',' ',clean_company_name)
+        clean_company_name = re.sub(r"^\w\b\s|\b\w\b(\s|$)"," ",clean_company_name, flags=re.IGNORECASE)
+        clean_company_name = re.sub(' +',' ',clean_company_name).strip()
+        
 
         return set(keyword for keyword in clean_company_name.split(" ") if keyword not in self.ignored_words)
