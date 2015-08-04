@@ -19,6 +19,8 @@ class TestFuzzy(unittest.TestCase):
         self.assertEqual("Rolf Jensen & Associates International Inc", clean("Rolf Jensen & Associates, International, Inc"))
         self.assertEqual("M+W Singapore Pte Ltd Abu Dhabi", clean("M+W Singapore Pte Ltd - Abu Dhabi"))
         self.assertEqual("Smith International Inc.", clean("Smith International Inc.,"))
+        self.assertEqual("Shokri Hassan Trading Co. L.L. C.", clean("Shokri Hassan Trading Co. (L.L. C.)"))
+        self.assertEqual("Dst GlobalMiddle East Limited", clean("Dst Global(Middle East Limited)"))
 
     def test_ignore_words(self):
         """
@@ -27,6 +29,13 @@ class TestFuzzy(unittest.TestCase):
         ignore_words_cls = IgnoreWords()
 
 
+        self.assertEqual(sorted(["hada", "hada general trading","tradingl.l.c"]), sorted(ignore_words_cls.return_keyword_lists("Hada General TradingL.L.C".lower())))
+        self.assertEqual(sorted(["dst","globalmiddle", "east", "dst globalmiddle east"]), sorted(ignore_words_cls.return_keyword_lists("Dst GlobalMiddle East Limited".lower())))
+        self.assertEqual(sorted(["jacky's","jacky's gulf"]), sorted(ignore_words_cls.return_keyword_lists("Jacky's Gulf Fze".lower())))
+        self.assertEqual(sorted(["emirates trading"]), sorted(ignore_words_cls.return_keyword_lists("Emirates Trading Est.".lower())))
+        self.assertEqual(sorted(["mena","mena business services"]), sorted(ignore_words_cls.return_keyword_lists("Mena Business Services Fz-Llc".lower())))
+        self.assertEqual(sorted(["shokri","hassan","shokri hassan trading"]), sorted(ignore_words_cls.return_keyword_lists("Shokri Hassan Trading Co. L.L. C.".lower())))
+        self.assertEqual(sorted(["danube","bulding","danube bulding materials"]), sorted(ignore_words_cls.return_keyword_lists("Danube Bulding Materials Fzco.".lower())))
         self.assertEqual(sorted(["alokozay","alokozay international"]), sorted(ignore_words_cls.return_keyword_lists("Alokozay International Ltd.".lower())))
         self.assertEqual(sorted(["malcolm","pirnie","malcolm pirnie middle east"]), sorted(ignore_words_cls.return_keyword_lists("Malcolm Pirnie Middle East FZC".lower())))
         self.assertEqual(sorted(["ojaco","ojaco engineering"]), sorted(ignore_words_cls.return_keyword_lists("Ojaco Engineering Co.".lower())))
@@ -34,7 +43,7 @@ class TestFuzzy(unittest.TestCase):
         self.assertEqual(sorted(["arabtec","arabtec holding"]), sorted(ignore_words_cls.return_keyword_lists("Arabtec Holding PJSC".lower())))
         self.assertEqual(sorted(["advanced","pipes","casts","advanced pipes and casts company"]), sorted(ignore_words_cls.return_keyword_lists("Advanced Pipes and Casts Company W.L.L.".lower())))
         self.assertEqual(sorted(["smith","smith international"]), sorted(ignore_words_cls.return_keyword_lists("Smith International Inc.".lower())))
-        self.assertEqual(sorted(["thyssenkrupp","xervon","u.a.e.","thyssenkrupp xervon u.a.e."]), sorted(ignore_words_cls.return_keyword_lists("ThyssenKrupp Xervon U.A.E. L.L.C.".lower())))
+        self.assertEqual(sorted(["thyssenkrupp","xervon","thyssenkrupp xervon u.a.e."]), sorted(ignore_words_cls.return_keyword_lists("ThyssenKrupp Xervon U.A.E. L.L.C.".lower())))
         self.assertEqual(sorted(["noor","al noor hospitals group",]), sorted(ignore_words_cls.return_keyword_lists("Al Noor Hospitals Group PLC".lower())))
         self.assertEqual(sorted(["g.i.t"]), sorted(ignore_words_cls.return_keyword_lists("G.I.T Fze".lower())))
         self.assertEqual(sorted(["linde","linde engineering middle east",]), sorted(ignore_words_cls.return_keyword_lists("Linde Engineering Middle East LLC".lower())))

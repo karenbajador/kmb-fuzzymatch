@@ -37,6 +37,7 @@ class IgnoreWords():
                             "for", \
                             "star", \
                             "hotel", \
+                            "hotels", \
                             "services", \
                             "llc", \
                             "l.l.c.", \
@@ -52,7 +53,6 @@ class IgnoreWords():
                             "international", \
                             "consulting", \
                             "consultants", \
-                            "trading", \
                             "establishment", \
                             "properties", \
                             "engineers", \
@@ -97,13 +97,50 @@ class IgnoreWords():
                             "communications", \
                             "solutions", \
                             "fzco", \
+                            "fzco.", \
                             "industries", \
+                            "industry", \
                             "motors", \
                             "associates", \
                             "flowers", \
                             "advertising", \
                             "u.a.e.", \
                             "branch", \
+                            "gold", \
+                            "gulf", \
+                            "computers", \
+                            "petroleum", \
+                            "fz-llc", \
+                            "l.l.", \
+                            "c.", \
+                            "est.", \
+                            "materials", \
+                            "electronics", \
+                            "management", \
+                            "restaurant", \
+                            "professional", \
+                            "telecommunications", \
+                            "electromechanical", \
+                            "technology", \
+                            "systems", \
+                            "jewellery", \
+                            "jewels", \
+                            "bakery", \
+                            "healthcare", \
+                            "decor", \
+                            "center", \
+                            "trading", \
+                            "networks", \
+                            "network", \
+                            "f.z.e", \
+                            "development", \
+                            "aviation", \
+                            "worldwide", \
+                            "shipping", \
+                            "general", \
+                            "fashion", \
+                            
+
                             ]
         self.ignored_phrase = ["middle east", \
                             "information technology", \
@@ -117,6 +154,7 @@ class IgnoreWords():
                             "facilities management", \
                             "construction company", \
                             "technology services", \
+                            "technology solutions", \
                             "hotels and resorts", \
                             "building contracting", \
                             "transport and general contracting", \
@@ -127,6 +165,7 @@ class IgnoreWords():
                             "abu dhabi", \
                             "saudi arabia", \
                             "development and construction", \
+                            "pipeline construction", \
                             "mechanical works", \
                             "oilfield services", \
                             "oil services", \
@@ -134,15 +173,23 @@ class IgnoreWords():
                             "information services", \
                             "management services", \
                             "petroleum services", \
+                            "business services", \
+                            "media services", \
+                            "security services", \
+                            "technical services", \
                             "emirates contracting", \
                             "property management", \
                             "general trading", \
+                            "foodstuff trading", \
                             "building services", \
                             "business group", \
                             "development company", \
                             "power company", \
+                            "steel company", \
                             "ready mix", \
                             "steel industries", \
+                            "paper industries", \
+                            "metal industries", \
                             "cement factory", \
                             "general contracting", \
                             "marine services", \
@@ -150,9 +197,19 @@ class IgnoreWords():
                             "future energy", \
                             "law firm", \
                             "building materials", \
+                            "building material", \
                             "trading est\.", \
-                            "resources group\.", \
-                            "travel agency\.", \
+                            "resources group", \
+                            "travel agency", \
+                            "travel and tour", \
+                            "shipping agency", \
+                            "electro mechanical", \
+                            "human resources", \
+                            "animation studio", \
+                            "electrical engineering", \
+                            "management consultancy", \
+                            "marketing consultancy", \
+                            "advocate and legal consultant", \
                             ]
         
         self.abbr_corporate_types_b = [
@@ -171,6 +228,7 @@ class IgnoreWords():
                             "inc", \
                             "est", \
                             "plc", \
+                            "limited", \
                             ]
 
         self.abbr_corporate_types = [
@@ -183,8 +241,12 @@ class IgnoreWords():
                             "l\.l\.c", \
                             "co\.", \
                             "ltd\.", \
-                            "\(L\.L\.C\.\)", \
-                            
+                            "\(l\.l\.c\.\)", \
+                            "fz-llc", \
+                            "l\.l\. c\.", \
+                            "fzco\.", \
+                            "est\.", \
+                            "f\.z\.e", \
                             ]                                                        
 
     def return_keyword_lists(self,company_name):
