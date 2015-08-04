@@ -59,6 +59,10 @@ def main(argv):
 		## Ignore words
 		company_keywords_list = ignore_words_cls.return_keyword_lists(company_name)
 
+		print ("*****************")
+		print (row["Company Name"])
+		print (company_keywords_list)
+
 		## Find matches in DB using keywords , country and territory
 		crm_results = postgres_interface_cls.get_record_match(company_name, company_keywords_list, country, territory)
 
@@ -73,7 +77,7 @@ def main(argv):
 		# if best_score >= 75: 
 		# 	#print ("keword_list: {} + crm_results count: {}".format(company_keywords_list,len(crm_results)))
 		# 	print("{} => best_match: {} => '{}'".format(best_score, row["Company Name"], best_match))		
-		print("{} => best_match: {} => '{}'".format(best_score, row["Company Name"], best_match))
+		print("{} => best_match: {}".format(best_score, best_match))
 		
 		
 		### Generate new file

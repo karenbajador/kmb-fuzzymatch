@@ -25,20 +25,24 @@ class TestFuzzy(unittest.TestCase):
         Ignore words. Returned keywords list are used to query similar companies in database to narrow number of records to apply fuzzy match against.
         """
         ignore_words_cls = IgnoreWords()
-        
-        self.assertEqual(sorted(["jaber","alec",]), sorted(ignore_words_cls.return_keyword_lists("Al Jaber L E G T Engineering & Contracting Alec L L C".lower())))
-        self.assertEqual(sorted(["arabtec",]), sorted(ignore_words_cls.return_keyword_lists("Arabtec Holding PJSC".lower())))
-        self.assertEqual(sorted(["advanced","pipes","casts",]), sorted(ignore_words_cls.return_keyword_lists("Advanced Pipes and Casts Company W.L.L.".lower())))
-        self.assertEqual(sorted(["smith",]), sorted(ignore_words_cls.return_keyword_lists("Smith International Inc.".lower())))
-        self.assertEqual(sorted(["thyssenkrupp","xervon","u.a.e.",]), sorted(ignore_words_cls.return_keyword_lists("ThyssenKrupp Xervon U.A.E. L.L.C.".lower())))
-        self.assertEqual(sorted(["noor","plc",]), sorted(ignore_words_cls.return_keyword_lists("Al Noor Hospitals Group PLC".lower())))
+
+
+        self.assertEqual(sorted(["alokozay","alokozay international"]), sorted(ignore_words_cls.return_keyword_lists("Alokozay International Ltd.".lower())))
+        self.assertEqual(sorted(["malcolm","pirnie","malcolm pirnie middle east"]), sorted(ignore_words_cls.return_keyword_lists("Malcolm Pirnie Middle East FZC".lower())))
+        self.assertEqual(sorted(["ojaco","ojaco engineering"]), sorted(ignore_words_cls.return_keyword_lists("Ojaco Engineering Co.".lower())))
+        self.assertEqual(sorted(["jaber","alec","al jaber l e g t engineering & contracting alec"]), sorted(ignore_words_cls.return_keyword_lists("Al Jaber L E G T Engineering & Contracting Alec L L C".lower())))
+        self.assertEqual(sorted(["arabtec","arabtec holding"]), sorted(ignore_words_cls.return_keyword_lists("Arabtec Holding PJSC".lower())))
+        self.assertEqual(sorted(["advanced","pipes","casts","advanced pipes and casts company"]), sorted(ignore_words_cls.return_keyword_lists("Advanced Pipes and Casts Company W.L.L.".lower())))
+        self.assertEqual(sorted(["smith","smith international"]), sorted(ignore_words_cls.return_keyword_lists("Smith International Inc.".lower())))
+        self.assertEqual(sorted(["thyssenkrupp","xervon","u.a.e.","thyssenkrupp xervon u.a.e."]), sorted(ignore_words_cls.return_keyword_lists("ThyssenKrupp Xervon U.A.E. L.L.C.".lower())))
+        self.assertEqual(sorted(["noor","al noor hospitals group",]), sorted(ignore_words_cls.return_keyword_lists("Al Noor Hospitals Group PLC".lower())))
         self.assertEqual(sorted(["g.i.t"]), sorted(ignore_words_cls.return_keyword_lists("G.I.T Fze".lower())))
-        self.assertEqual(sorted(["linde"]), sorted(ignore_words_cls.return_keyword_lists("Linde Engineering Middle East LLC".lower())))
-        self.assertEqual(sorted(["emco","maintenance"]), sorted(ignore_words_cls.return_keyword_lists("Engineering Maintenance Company EMCO".lower())))
-        self.assertEqual(sorted(["moherbie","thermoplast"]), sorted(ignore_words_cls.return_keyword_lists("Al Moherbie Thermoplast LLC".lower())))
-        self.assertEqual(sorted(["gibca","gibtek"]), sorted(ignore_words_cls.return_keyword_lists("Gibca Information Technology L L C Gibtek".lower())))
-        self.assertEqual(sorted(["y&r",]), sorted(ignore_words_cls.return_keyword_lists("Y&R Abu Dhabi".lower())))
-        self.assertEqual(sorted(["tolico",]), sorted(ignore_words_cls.return_keyword_lists("Tolico Trading Oilfield Services L L C".lower())))
+        self.assertEqual(sorted(["linde","linde engineering middle east",]), sorted(ignore_words_cls.return_keyword_lists("Linde Engineering Middle East LLC".lower())))
+        self.assertEqual(sorted(["emco","maintenance","engineering maintenance company emco"]), sorted(ignore_words_cls.return_keyword_lists("Engineering Maintenance Company EMCO".lower())))
+        self.assertEqual(sorted(["moherbie","thermoplast","al moherbie thermoplast"]), sorted(ignore_words_cls.return_keyword_lists("Al Moherbie Thermoplast LLC".lower())))
+        self.assertEqual(sorted(["gibca","gibtek", "gibca information technology gibtek"]), sorted(ignore_words_cls.return_keyword_lists("Gibca Information Technology L L C Gibtek".lower())))
+        self.assertEqual(sorted(["y&r","y&r abu dhabi"]), sorted(ignore_words_cls.return_keyword_lists("Y&R Abu Dhabi".lower())))
+        self.assertEqual(sorted(["tolico","tolico trading oilfield services"]), sorted(ignore_words_cls.return_keyword_lists("Tolico Trading Oilfield Services L L C".lower())))
 
         
     def test_fuzzy_match(self):
