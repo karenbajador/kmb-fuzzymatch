@@ -139,6 +139,11 @@ class IgnoreWords():
                             "shipping", \
                             "general", \
                             "fashion", \
+                            "computers", \
+                            "computer", \
+                            "energy", \
+                            "egency", \
+                            "egencies", \
                             
 
                             ]
@@ -210,6 +215,7 @@ class IgnoreWords():
                             "management consultancy", \
                             "marketing consultancy", \
                             "advocate and legal consultant", \
+                            "data systems", \
                             ]
         
         self.abbr_corporate_types_b = [
