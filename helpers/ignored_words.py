@@ -86,6 +86,7 @@ class IgnoreWords():
                             "plc", \
                             "dubai", \
                             "oman", \
+                            "india", \
                             "egypt", \
                             "uae", \
                             "distribution", \
@@ -142,8 +143,33 @@ class IgnoreWords():
                             "computers", \
                             "computer", \
                             "energy", \
-                            "egency", \
-                            "egencies", \
+                            "agency", \
+                            "agencies", \
+                            "opticals", \
+                            "optical", \
+                            "aluminum", \
+                            "interior", \
+                            "interiors", \
+                            "safety", \
+                            "island", \
+                            "precast", \
+                            "electrical", \
+                            "supplies", \
+                            "airlines", \
+                            "glass", \
+                            "printing", \
+                            "publishing", \
+                            "abudhabi", \
+                            "marketing", \
+                            "overseas", \
+                            "airport", \
+                            "commercial", \
+                            "technical", \
+                            "oil", \
+                            "shares", \
+                            "chemical", \
+                            "mechanical", \
+                            "establishments", \
                             
 
                             ]
@@ -169,6 +195,8 @@ class IgnoreWords():
                             "international technology", \
                             "abu dhabi", \
                             "saudi arabia", \
+                            "umm al qaiwain", \
+                            "al ain", \
                             "development and construction", \
                             "pipeline construction", \
                             "mechanical works", \
@@ -216,6 +244,9 @@ class IgnoreWords():
                             "marketing consultancy", \
                             "advocate and legal consultant", \
                             "data systems", \
+                            "cleaning services", \
+                            "industrial supply", \
+                            "equipment rental", \
                             ]
         
         self.abbr_corporate_types_b = [
