@@ -53,7 +53,8 @@ class PandaDataFrame():
         else:
             match_status = 'not matched'
 
-        self._new_df['Match Status'][int(index)]=match_status+"="+str(best_score)
+        #self._new_df['Match Status'][int(index)]=match_status+"="+str(best_score)
+        self._new_df['Match Status'][int(index)]=str(best_score)
         self._new_df['CRM Company Name'][int(index)]=best_match.crm_company_name
         self._new_df['CRM Group ID'][int(index)]=best_match.crm_group_id
         self._new_df['CRM Company ID'][int(index)]=best_match.crm_company_id

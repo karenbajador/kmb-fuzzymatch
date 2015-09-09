@@ -15,7 +15,7 @@ def extract_row_generator(df):
 
 def clean(company_name):
 	## Clean spaces
-	company_name = re.sub(r'([^\s\+\&\w\.])|_+', '', company_name) 
+	company_name = re.sub(r'([^\s\+\&\w\.])|_+', ' ', company_name) 
 	return re.sub(' +',' ',company_name).strip()		
 
 # Specify the Employee namedtuple.
@@ -23,7 +23,8 @@ Match = collections.namedtuple("Match", ["crm_company_id", "crm_company_name", "
 
 def get_fuzzy_match_generator(crm_results, excel_company_name):
 	for result in crm_results:
-		yield Match(crm_company_id = result[0],crm_company_name = result[1],crm_group_id = result[2], score=fuzz.ratio(excel_company_name, result[1]))
+		# yield Match(crm_company_id = result[0],crm_company_name = result[1],crm_group_id = result[2], score=fuzz.weighted_6(excel_company_name, result[1], total_weight =50))
+		yield Match(crm_company_id = result[0],crm_company_name = result[1],crm_group_id = result[2], score=fuzz.partial_ratio(excel_company_name, result[1]))
 
 
 def call_fuzzy_match_generator(best_match, best_score, company_name, crm_results):

@@ -46,6 +46,7 @@ class IgnoreWords():
                             "-", \
                             "co.", \
                             "in", \
+                            "ing", \
                             "&", \
                             "pty", \
                             "pte", \
@@ -71,6 +72,7 @@ class IgnoreWords():
                             "enterprises", \
                             "centre", \
                             "construction", \
+                            "construct", \
                             "architects", \
                             "house", \
                             "partners", \
@@ -102,6 +104,7 @@ class IgnoreWords():
                             "industries", \
                             "industry", \
                             "motors", \
+                            "motor", \
                             "associates", \
                             "flowers", \
                             "advertising", \
@@ -121,13 +124,16 @@ class IgnoreWords():
                             "restaurant", \
                             "professional", \
                             "telecommunications", \
+                            "telecommunication", \
                             "electromechanical", \
                             "technology", \
                             "systems", \
+                            "system", \
                             "jewellery", \
                             "jewels", \
                             "bakery", \
                             "healthcare", \
+                            "health", \
                             "decor", \
                             "center", \
                             "trading", \
@@ -148,10 +154,12 @@ class IgnoreWords():
                             "opticals", \
                             "optical", \
                             "aluminum", \
+                            "aluminium", \
                             "interior", \
                             "interiors", \
                             "safety", \
                             "island", \
+                            "land", \
                             "precast", \
                             "electrical", \
                             "supplies", \
@@ -170,13 +178,137 @@ class IgnoreWords():
                             "chemical", \
                             "mechanical", \
                             "establishments", \
-                            
-
+                            "france", \
+                            "power", \
+                            "furniture", \
+                            "offshore", \
+                            "bitumen", \
+                            "drilling", \
+                            "authority", \
+                            "gardens", \
+                            "travel", \
+                            "control", \
+                            "building", \
+                            "buildings", \
+                            "environment", \
+                            "universal", \
+                            "union", \
+                            "united", \
+                            "products", \
+                            "experts", \
+                            "security", \
+                            "clearing", \
+                            "agriculture", \
+                            "agricultural", \
+                            "arab", \
+                            "arabian", \
+                            "arabia", \
+                            "london", \
+                            "paris", \
+                            "qatar", \
+                            "east", \
+                            "italian", \
+                            "french", \
+                            "german", \
+                            "republic", \
+                            "ports", \
+                            "port", \
+                            "maintenance", \
+                            "marine", \
+                            "store", \
+                            "stores", \
+                            "commodities", \
+                            "automation", \
+                            "project", \
+                            "projects", \
+                            "net", \
+                            "machinery", \
+                            "installations", \
+                            "installation", \
+                            "gases", \
+                            "gas", \
+                            "supermarket", \
+                            "contractors", \
+                            "training", \
+                            "laboratories", \
+                            "medical", \
+                            "maritime", \
+                            "pharmacies", \
+                            "tech", \
+                            "capital", \
+                            "equipment", \
+                            "equipments", \
+                            "specialized", \
+                            "special", \
+                            "venture", \
+                            "catering", \
+                            "information", \
+                            "general", \
+                            "techno", \
+                            "steel", \
+                            "works", \
+                            "work", \
+                            "care", \
+                            "water", \
+                            "zone", \
+                            "lease", \
+                            "sal", \
+                            "rental", \
+                            "arch", \
+                            "exhibitions", \
+                            "exhibition", \
+                            "central", \
+                            "electro", \
+                            "broker", \
+                            "civil", \
+                            "sons", \
+                            "support", \
+                            "traders", \
+                            "associated", \
+                            "association", \
+                            "food", \
+                            "ham", \
+                            "college", \
+                            "landscaping", \
+                            "inspection", \
+                            "ship", \
+                            "finance", \
+                            "culture", \
+                            "pharmaceuticals", \
+                            "operating", \
+                            "office", \
+                            "committee", \
+                            "city", \
+                            "advocacy", \
+                            "legal", \
+                            "cafe", \
+                            "coating", \
+                            "tours", \
+                            "joint", \
+                            "pipes", \
+                            "petrogas", \
+                            "mercantile", \
+                            "leasing", \
+                            "economy", \
+                            "fluor", \
+                            "plant", \
+                            "mix", \
+                            "global", \
+                            "consolidated", \
+                            "metal", \
+                            "brothers", \
+                            "islamic", \
+                            "resources", \
+                            "manufacturing", \
+                            "western", \
+                            "royal", \
+                            "turnkey", \
                             ]
         self.ignored_phrase = ["middle east", \
                             "information technology", \
                             "sports and cultural club", \
                             "medical supplies", \
+                            "medical services", \
                             "real estate", \
                             "insurance brokers", \
                             "general contracting", \
@@ -193,7 +325,12 @@ class IgnoreWords():
                             "building maintenance", \
                             "general maintenance", \
                             "international technology", \
+                            "united arab emirates", \
                             "abu dhabi", \
+                            "ras al khaimah", \
+                            "north africa", \
+                            "sri lanka", \
+                            "abu dabi", \
                             "saudi arabia", \
                             "umm al qaiwain", \
                             "al ain", \
@@ -201,12 +338,14 @@ class IgnoreWords():
                             "pipeline construction", \
                             "mechanical works", \
                             "oilfield services", \
+                            "oilfield supplies", \
                             "oil services", \
                             "oil company", \
                             "information services", \
                             "management services", \
                             "petroleum services", \
                             "business services", \
+                            "business centre", \
                             "media services", \
                             "security services", \
                             "technical services", \
@@ -215,6 +354,8 @@ class IgnoreWords():
                             "general trading", \
                             "foodstuff trading", \
                             "building services", \
+                            "environmental services", \
+                            "petrochemical services", \
                             "business group", \
                             "development company", \
                             "power company", \
@@ -226,6 +367,7 @@ class IgnoreWords():
                             "cement factory", \
                             "general contracting", \
                             "marine services", \
+                            "financial services", \
                             "palace hotel", \
                             "future energy", \
                             "law firm", \
@@ -240,6 +382,10 @@ class IgnoreWords():
                             "human resources", \
                             "animation studio", \
                             "electrical engineering", \
+                            "electrical equipment", \
+                            "kitchen equipment", \
+                            "heavy equipment", \
+                            "heavy industries", \
                             "management consultancy", \
                             "marketing consultancy", \
                             "advocate and legal consultant", \
@@ -247,6 +393,25 @@ class IgnoreWords():
                             "cleaning services", \
                             "industrial supply", \
                             "equipment rental", \
+                            "spare parts", \
+                            "oil equipment", \
+                            "oil \& gas", \
+                            "oil and gas", \
+                            "computer institute", \
+                            "advanced solutions", \
+                            "fire fighting", \
+                            "plaza hotel", \
+                            "money exchange", \
+                            "shares and bonds", \
+                            "language centers", \
+                            "travel and tourism", \
+                            "health insurance", \
+                            "pest control", \
+                            "pipe factory", \
+                            "air condition", \
+                            "cont\.", \
+                            "free zone", \
+                            
                             ]
         
         self.abbr_corporate_types_b = [
